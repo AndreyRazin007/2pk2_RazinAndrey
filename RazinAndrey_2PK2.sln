@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PZ_15_RazinAndrey_2PK2", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PZ_16_RazinAndrey_2PK2", "PZ_16_RazinAndrey_2PK2\PZ_16_RazinAndrey_2PK2.csproj", "{FD51E493-8945-4498-97E4-CC17818B7FE7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PZ_17_RazinAndrey_2PK2", "PZ_17_RazinAndrey_2PK2\PZ_17_RazinAndrey_2PK2.csproj", "{3A96C1BF-2E3B-4BE0-BCEA-E7BFA99FB3FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{FD51E493-8945-4498-97E4-CC17818B7FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD51E493-8945-4498-97E4-CC17818B7FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD51E493-8945-4498-97E4-CC17818B7FE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A96C1BF-2E3B-4BE0-BCEA-E7BFA99FB3FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A96C1BF-2E3B-4BE0-BCEA-E7BFA99FB3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A96C1BF-2E3B-4BE0-BCEA-E7BFA99FB3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A96C1BF-2E3B-4BE0-BCEA-E7BFA99FB3FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
