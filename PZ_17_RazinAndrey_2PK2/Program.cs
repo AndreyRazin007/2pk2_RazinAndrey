@@ -11,9 +11,6 @@ namespace PZ_17_RazinAndrey_2PK2
         const char medicineKit = 'M';
         const char boost = 'B';
 
-        const int playerPositionX = 12;
-        const int playerPositionY = 12;
-
         private static int playerHP = 30;
         private static int playerPower = 5;
 
@@ -76,7 +73,6 @@ namespace PZ_17_RazinAndrey_2PK2
             if (playerHP > 0)
             {
                 Console.Clear();
-
                 for (int i = 0; i < 25; ++i)
                 {
                     for (int j = 0; j < 25; ++j)
@@ -86,23 +82,26 @@ namespace PZ_17_RazinAndrey_2PK2
                         if (map[i, j] == medicineKit) Console.ForegroundColor = ConsoleColor.Green;
                         if (map[i, j] == boost) Console.ForegroundColor = ConsoleColor.DarkBlue;
                         if (map[i, j] == '.') Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write($"{map[i, j]}");
+                        Console.Write($"{map[i, j]} ");
                     }
                     Console.Write('\n');
                 }
-            }
-
-            else if (playerHP <= 0)
-            {
-                Console.Clear();
-
-                Console.WriteLine("К сожалению, вы проиграли!");
             }
         }
 
         private static void Move()
         {
-
+            int playerPositionX = 12;
+            int playerPositionY = 12;
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.W:
+                    map[playerPositionX, playerPositionY] = '#';
+                    map[playerPositionX - 5, playerPositionY] = player;
+                    UpdateMap();
+                    break;
+            }
         }
 
         private static void Fight()
@@ -130,8 +129,8 @@ namespace PZ_17_RazinAndrey_2PK2
         private static void StartGame()
         {
             MapGenerate();
-            int x = playerPositionX;
-            int y = playerPositionY;
+            int x = 12;
+            int y = 12;
             map[x, y] = player;
 
             for (int i = 0; i < 25; ++i)
@@ -153,9 +152,6 @@ namespace PZ_17_RazinAndrey_2PK2
         private static void Main()
         {
             StartGame();
-            Console.Title = "ConsoleGame";
-            Console.ReadKey();
-            Console.Clear();
         }
     }
 }
