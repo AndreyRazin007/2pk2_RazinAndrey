@@ -11,11 +11,25 @@ namespace PZ_17_RazinAndrey_2PK2
         const char medicineKit = 'M';
         const char boost = 'B';
 
-        private static int playerHP = 30;
-        private static int playerPower = 5;
+        private static uint countEnemy = 10;
+        private static uint countMedicineKit = 5;
+        private static uint countBoost = 3;
 
-        private static int enemyHP = 15;
-        private static int enemyPower = 5;
+        private static uint countStroke = 0;
+
+        private static uint enemyPower = 5;
+
+        private static uint playerHP = 30;
+        private static uint playerPower = 5;
+
+        enum ColorCharacter
+        {
+            Yellow = ConsoleColor.Yellow,
+            DarkRed = ConsoleColor.DarkRed,
+            Green = ConsoleColor.Green,
+            DarkBlue = ConsoleColor.DarkBlue,
+            White = ConsoleColor.White
+        }
 
         private static void MapGenerate()
         {
@@ -23,9 +37,13 @@ namespace PZ_17_RazinAndrey_2PK2
             {
                 for (int j = 0; j < map.GetLength(1); ++j)
                 {
-                    map[i, j] = '#';
+                    map[i, j] = '.';
                 }
             }
+
+            int x = 12;
+            int y = 12;
+            map[x, y] = player;
 
             EnemyGenerate();
             BoostGenerate();
@@ -39,7 +57,7 @@ namespace PZ_17_RazinAndrey_2PK2
                 Random random = new Random();
                 int x = random.Next(5, 25);
                 int y = random.Next(5, 25);
-                if (map[x, y] == '#' && map[x, y] != boost && map[x, y] != medicineKit) map[x, y] = enemy;
+                if (map[x, y] == '.' && map[x, y] != boost && map[x, y] != medicineKit) map[x, y] = enemy;
                 else --i;
             }
         }
@@ -51,7 +69,7 @@ namespace PZ_17_RazinAndrey_2PK2
                 Random random = new Random();
                 int x = random.Next(5, 25);
                 int y = random.Next(5, 25);
-                if (map[x, y] == '#' && map[x, y] != enemy && map[x, y] != medicineKit) map[x, y] = boost;
+                if (map[x, y] == '.' && map[x, y] != enemy && map[x, y] != medicineKit) map[x, y] = boost;
                 else --i;
             }
         }
@@ -63,75 +81,14 @@ namespace PZ_17_RazinAndrey_2PK2
                 Random random = new Random();
                 int x = random.Next(5, 25);
                 int y = random.Next(5, 25);
-                if (map[x, y] == '#' && map[x, y] != enemy && map[x, y] != boost) map[x, y] = medicineKit;
+                if (map[x, y] == '.' && map[x, y] != enemy && map[x, y] != boost) map[x, y] = medicineKit;
                 else --i;
             }
         }
 
         private static void UpdateMap()
         {
-            if (playerHP > 0)
-            {
-                Console.Clear();
-                for (int i = 0; i < 25; ++i)
-                {
-                    for (int j = 0; j < 25; ++j)
-                    {
-                        if (map[i, j] == player) Console.ForegroundColor = ConsoleColor.Yellow;
-                        if (map[i, j] == enemy) Console.ForegroundColor = ConsoleColor.DarkRed;
-                        if (map[i, j] == medicineKit) Console.ForegroundColor = ConsoleColor.Green;
-                        if (map[i, j] == boost) Console.ForegroundColor = ConsoleColor.DarkBlue;
-                        if (map[i, j] == '.') Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write($"{map[i, j]} ");
-                    }
-                    Console.Write('\n');
-                }
-            }
-        }
-
-        private static void Move()
-        {
-            int playerPositionX = 12;
-            int playerPositionY = 12;
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
-            switch (keyInfo.Key)
-            {
-                case ConsoleKey.W:
-                    map[playerPositionX, playerPositionY] = '#';
-                    map[playerPositionX - 5, playerPositionY] = player;
-                    UpdateMap();
-                    break;
-            }
-        }
-
-        private static void Fight()
-        {
-            int tempPlayerHP = playerHP;
-            int tempEnemyHP = enemyHP;
-
-            while (tempPlayerHP < 0 && tempEnemyHP < 0)
-            {
-                tempPlayerHP -= enemyPower;
-                tempEnemyHP -= playerPower;
-            }
-        }
-
-        private static void Healing()
-        {
-            playerHP = 30;
-        }
-
-        private static void Boost()
-        {
-            playerPower *= 2;
-        }
-
-        private static void StartGame()
-        {
-            MapGenerate();
-            int x = 12;
-            int y = 12;
-            map[x, y] = player;
+            Console.Clear();
 
             for (int i = 0; i < 25; ++i)
             {
@@ -141,12 +98,151 @@ namespace PZ_17_RazinAndrey_2PK2
                     if (map[i, j] == enemy) Console.ForegroundColor = ConsoleColor.DarkRed;
                     if (map[i, j] == medicineKit) Console.ForegroundColor = ConsoleColor.Green;
                     if (map[i, j] == boost) Console.ForegroundColor = ConsoleColor.DarkBlue;
-                    if (map[i, j] == '#') Console.ForegroundColor = ConsoleColor.White;
+                    if (map[i, j] == '.') Console.ForegroundColor = ConsoleColor.White;
                     Console.Write($"{map[i, j]} ");
                 }
                 Console.Write('\n');
             }
-            Move();
+
+            Console.WriteLine();
+
+            Console.WriteLine($"Здоровье игрока: {playerHP}");
+            Console.WriteLine($"Количество аптечек: {countMedicineKit}");
+            Console.WriteLine($"Количество бустов: {countBoost}");
+            Console.WriteLine($"Оставшиеся враги: {countEnemy}");
+            Console.WriteLine($"Количество ходов: {countStroke}");
+        }
+
+        private static void Move(ref int positionX, ref int positionY)
+        {
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.W:
+                    if (map[positionX - 1, positionY] == enemy) Fight();
+                    if (map[positionX - 1, positionY] == medicineKit) Healing();
+                    if (map[positionX - 1, positionY] == boost) Buff(); 
+                    map[positionX, positionY] = '.';
+                    map[positionX - 1, positionY] = player;
+                    --positionX;
+                    UpdateMap();
+                    break;
+                case ConsoleKey.A:
+                    if (map[positionX, positionY - 1] == enemy) Fight();
+                    if (map[positionX, positionY - 1] == medicineKit) Healing();
+                    if (map[positionX, positionY - 1] == boost) Buff();
+                    map[positionX, positionY] = '.';
+                    map[positionX, positionY - 1] = player;
+                    --positionY;
+                    UpdateMap();
+                    break;
+                case ConsoleKey.S:
+                    if (map[positionX + 1, positionY] == enemy) Fight();
+                    if (map[positionX + 1, positionY] == medicineKit) Healing();
+                    if (map[positionX + 1, positionY] == boost) Buff();
+                    map[positionX, positionY] = '.';
+                    map[positionX + 1, positionY] = player;
+                    ++positionX;
+                    UpdateMap();
+                    break;
+                case ConsoleKey.D:
+                    if (map[positionX, positionY + 1] == enemy) Fight();
+                    if (map[positionX, positionY + 1] == medicineKit) Healing();
+                    if (map[positionX, positionY + 1] == boost) Buff();
+                    map[positionX, positionY] = '.';
+                    map[positionX, positionY + 1] = player;
+                    ++positionY;
+                    UpdateMap();
+                    break;
+            }
+            ++countStroke;
+        }
+
+        private static void Fight()
+        {
+            uint enemyHP = 15;
+            while (playerHP > 0 && enemyHP > 0)
+            {
+                playerHP -= enemyPower;
+                enemyHP -= playerPower;
+            }
+            --countEnemy;
+        }
+
+        private static void Healing()
+        {
+            playerHP = 30;
+            --countMedicineKit;
+        }
+
+        private static void Buff()
+        {
+            playerHP += 25;
+            --countBoost;
+        }
+
+        private static void SaveState()
+        {
+
+        }
+
+        private static void StartGame()
+        {   
+            MapGenerate();
+
+            for (int i = 0; i < 25; ++i)
+            {
+                for (int j = 0; j < 25; ++j)
+                {
+                    if (map[i, j] == player) Console.ForegroundColor = (ConsoleColor)ColorCharacter.Yellow;
+                    if (map[i, j] == enemy) Console.ForegroundColor = (ConsoleColor)ColorCharacter.DarkRed;
+                    if (map[i, j] == medicineKit) Console.ForegroundColor = (ConsoleColor)ColorCharacter.Green;
+                    if (map[i, j] == boost) Console.ForegroundColor = (ConsoleColor)ColorCharacter.DarkBlue;
+                    if (map[i, j] == '.') Console.ForegroundColor = (ConsoleColor)ColorCharacter.White;
+                    Console.Write($"{map[i, j]} ");
+                }
+                Console.Write("\n");
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine($"Здоровье игрока: {playerHP}");
+            Console.WriteLine($"Количество аптечек: {countMedicineKit}");
+            Console.WriteLine($"Количество бустов: {countBoost}");
+            Console.WriteLine($"Оставшиеся враги: {countEnemy}");
+            Console.WriteLine($"Количество ходов: {countStroke}");
+
+            int positionX = 12;
+            int positionY = 12;
+
+            while (playerHP > 0 && countEnemy > 0)
+            {
+                Move(ref positionX, ref positionY);
+            }
+
+            if (playerHP <= 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Вы не смогли победить всех врагов, возращайтесь с новыми силами и покажите свою силу!");
+                Console.ReadKey();
+                Console.Clear();
+            }
+
+            if (playerHP == 0 && countEnemy == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Ценой собственной жизни вы смогли победить всех врагов, ваша жертва не была напрасной!");
+                Console.ReadKey();
+                Console.Clear();
+            }
+
+            if (countEnemy == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Вы достойно сражались и смогли искоренить зло, примите наши поздравления!");
+                Console.ReadKey();
+                Console.Clear();
+            }
         }
 
         private static void Main()
