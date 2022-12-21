@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PZ_16_RazinAndrey_2PK2", "P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PZ_17_RazinAndrey_2PK2", "PZ_17_RazinAndrey_2PK2\PZ_17_RazinAndrey_2PK2.csproj", "{3A96C1BF-2E3B-4BE0-BCEA-E7BFA99FB3FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PZ_18_RazinAndrey_2PK2", "PZ_18_RazinAndrey_2PK2\PZ_18_RazinAndrey_2PK2.csproj", "{970A39EE-737D-4349-B9EF-A11365437DE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PZ_18_RazinAndrey_2PK2", "PZ_18_RazinAndrey_2PK2\PZ_18_RazinAndrey_2PK2.csproj", "{970A39EE-737D-4349-B9EF-A11365437DE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PZ_20_RazinAndrey_2PK2", "PZ_20_RazinAndrey_2PK2\PZ_20_RazinAndrey_2PK2.csproj", "{7049FF9B-455D-4FC4-8BA8-8A6995CB8D9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{970A39EE-737D-4349-B9EF-A11365437DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{970A39EE-737D-4349-B9EF-A11365437DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{970A39EE-737D-4349-B9EF-A11365437DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7049FF9B-455D-4FC4-8BA8-8A6995CB8D9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7049FF9B-455D-4FC4-8BA8-8A6995CB8D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7049FF9B-455D-4FC4-8BA8-8A6995CB8D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7049FF9B-455D-4FC4-8BA8-8A6995CB8D9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
