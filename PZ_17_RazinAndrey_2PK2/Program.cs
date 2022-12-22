@@ -20,7 +20,7 @@ namespace PZ_17_RazinAndrey_2PK2
         private static uint enemyPower = 5;
 
         private static uint playerHP = 30;
-        private static uint playerPower = 5;
+        private static int playerPower = 5;
 
         enum ColorCharacter
         {
@@ -110,6 +110,7 @@ namespace PZ_17_RazinAndrey_2PK2
             Console.WriteLine($"Количество аптечек: {countMedicineKit}");
             Console.WriteLine($"Количество бустов: {countBoost}");
             Console.WriteLine($"Оставшиеся враги: {countEnemy}");
+            Console.WriteLine($"Сила игрока: {playerPower}");
             Console.WriteLine($"Количество ходов: {countStroke}");
         }
 
@@ -121,10 +122,11 @@ namespace PZ_17_RazinAndrey_2PK2
                 case ConsoleKey.W:
                     if (map[positionX - 1, positionY] == enemy) Fight();
                     if (map[positionX - 1, positionY] == medicineKit) Healing();
-                    if (map[positionX - 1, positionY] == boost) Buff(); 
+                    if (map[positionX - 1, positionY] == boost) Buff();
                     map[positionX, positionY] = '.';
                     map[positionX - 1, positionY] = player;
                     --positionX;
+                    ++countStroke;
                     UpdateMap();
                     break;
                 case ConsoleKey.A:
@@ -134,6 +136,7 @@ namespace PZ_17_RazinAndrey_2PK2
                     map[positionX, positionY] = '.';
                     map[positionX, positionY - 1] = player;
                     --positionY;
+                    ++countStroke;
                     UpdateMap();
                     break;
                 case ConsoleKey.S:
@@ -143,6 +146,7 @@ namespace PZ_17_RazinAndrey_2PK2
                     map[positionX, positionY] = '.';
                     map[positionX + 1, positionY] = player;
                     ++positionX;
+                    ++countStroke;
                     UpdateMap();
                     break;
                 case ConsoleKey.D:
@@ -152,15 +156,15 @@ namespace PZ_17_RazinAndrey_2PK2
                     map[positionX, positionY] = '.';
                     map[positionX, positionY + 1] = player;
                     ++positionY;
+                    ++countStroke;
                     UpdateMap();
                     break;
             }
-            ++countStroke;
         }
 
         private static void Fight()
         {
-            uint enemyHP = 15;
+            int enemyHP = 15;
             while (playerHP > 0 && enemyHP > 0)
             {
                 playerHP -= enemyPower;
@@ -171,19 +175,41 @@ namespace PZ_17_RazinAndrey_2PK2
 
         private static void Healing()
         {
-            playerHP = 30;
+            if (playerHP < 30) playerHP = 30;
             --countMedicineKit;
         }
 
         private static void Buff()
         {
-            playerHP += 25;
-            --countBoost;
+            playerHP += 15;
+            playerPower += 5;
         }
 
-        private static void SaveState()
+        private static void EndGame()
         {
+            if (playerHP <= 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Вы не смогли победить всех врагов, возращайтесь с новыми силами и покажите свою силу!");
+                Console.ReadKey();
+                Console.Clear();
+            }
 
+            if (playerHP == 0 && countEnemy == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Ценой собственной жизни вы смогли победить всех врагов, ваша жертва не была напрасной!");
+                Console.ReadKey();
+                Console.Clear();
+            }
+
+            if (countEnemy == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Вы достойно сражались и смогли искоренить зло, примите наши поздравления!");
+                Console.ReadKey();
+                Console.Clear();
+            }
         }
 
         private static void StartGame()
@@ -210,7 +236,13 @@ namespace PZ_17_RazinAndrey_2PK2
             Console.WriteLine($"Количество аптечек: {countMedicineKit}");
             Console.WriteLine($"Количество бустов: {countBoost}");
             Console.WriteLine($"Оставшиеся враги: {countEnemy}");
+            Console.WriteLine($"Сила игрока: {playerPower}");
             Console.WriteLine($"Количество ходов: {countStroke}");
+        }
+
+        private static void Main()
+        {
+            StartGame();
 
             int positionX = 12;
             int positionY = 12;
@@ -220,34 +252,7 @@ namespace PZ_17_RazinAndrey_2PK2
                 Move(ref positionX, ref positionY);
             }
 
-            if (playerHP <= 0)
-            {
-                Console.Clear();
-                Console.WriteLine("Вы не смогли победить всех врагов, возращайтесь с новыми силами и покажите свою силу!");
-                Console.ReadKey();
-                Console.Clear();
-            }
-
-            if (playerHP == 0 && countEnemy == 0)
-            {
-                Console.Clear();
-                Console.WriteLine("Ценой собственной жизни вы смогли победить всех врагов, ваша жертва не была напрасной!");
-                Console.ReadKey();
-                Console.Clear();
-            }
-
-            if (countEnemy == 0)
-            {
-                Console.Clear();
-                Console.WriteLine("Вы достойно сражались и смогли искоренить зло, примите наши поздравления!");
-                Console.ReadKey();
-                Console.Clear();
-            }
-        }
-
-        private static void Main()
-        {
-            StartGame();
+            EndGame();
         }
     }
 }
