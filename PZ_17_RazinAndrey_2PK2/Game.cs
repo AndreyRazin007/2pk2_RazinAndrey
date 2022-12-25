@@ -8,8 +8,6 @@ namespace PZ_17_RazinAndrey_2PK2
         public static int countMedicineKit = 5;
         public static int countBoost = 3;
 
-        public static int countStroke = 0;
-
         public static int enemyPower = 5;
 
         public static int playerHP = 30;
@@ -33,7 +31,6 @@ namespace PZ_17_RazinAndrey_2PK2
                     Map.map[positionX, positionY] = '.';
                     Map.map[positionX - 1, positionY] = Map.player;
                     --positionX;
-                    ++countStroke;
                     Map.UpdateMap();
                     break;
                 case ConsoleKey.A:
@@ -43,7 +40,6 @@ namespace PZ_17_RazinAndrey_2PK2
                     Map.map[positionX, positionY] = '.';
                     Map.map[positionX, positionY - 1] = Map.player;
                     --positionY;
-                    ++countStroke;
                     Map.UpdateMap();
                     break;
                 case ConsoleKey.S:
@@ -53,7 +49,6 @@ namespace PZ_17_RazinAndrey_2PK2
                     Map.map[positionX, positionY] = '.';
                     Map.map[positionX + 1, positionY] = Map.player;
                     ++positionX;
-                    ++countStroke;
                     Map.UpdateMap();
                     break;
                 case ConsoleKey.D:
@@ -63,7 +58,6 @@ namespace PZ_17_RazinAndrey_2PK2
                     Map.map[positionX, positionY] = '.';
                     Map.map[positionX, positionY + 1] = Map.player;
                     ++positionY;
-                    ++countStroke;
                     Map.UpdateMap();
                     break;
             }

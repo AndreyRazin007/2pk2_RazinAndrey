@@ -56,7 +56,6 @@ namespace PZ_17_RazinAndrey_2PK2
             Console.WriteLine($"Количество бустов: {Game.countBoost}");
             Console.WriteLine($"Оставшиеся враги: {Game.countEnemy}");
             Console.WriteLine($"Сила игрока: {Game.playerPower}");
-            Console.WriteLine($"Количество ходов: {Game.countStroke}");
         }
 
         public static void Main()
