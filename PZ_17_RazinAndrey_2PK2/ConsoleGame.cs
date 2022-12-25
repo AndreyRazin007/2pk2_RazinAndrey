@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace PZ_17_RazinAndrey_2PK2
 {
@@ -15,27 +16,17 @@ namespace PZ_17_RazinAndrey_2PK2
 
         public static void EndGame()
         {
-            if (Game.playerHP <= 0)
-            {
-                Console.Clear();
-                Console.WriteLine("Вы не смогли победить всех врагов, возращайтесь с новыми силами и покажите свою силу!");
-                Console.ReadKey();
-                Console.Clear();
-            }
+            Console.Clear();
+            if (Game.playerHP <= 0) Console.WriteLine("Вы не смогли победить всех врагов, возращайтесь снова и покажите свою силу!");
+            if (Game.playerHP == 0 && Game.countEnemy == 0) Console.WriteLine("Ценой собственной жизни вы смогли победить всех врагов, ваша жертва не была напрасной!");
+            if (Game.countEnemy == 0) Console.WriteLine("Вы достойно сражались и смогли искоренить зло, примите наши поздравления!");
+            Thread.Sleep(3000);
+            Console.Clear();
 
-            if (Game.playerHP == 0 && Game.countEnemy == 0)
+            for (int i = 5; i > 0; --i)
             {
-                Console.Clear();
-                Console.WriteLine("Ценой собственной жизни вы смогли победить всех врагов, ваша жертва не была напрасной!");
-                Console.ReadKey();
-                Console.Clear();
-            }
-
-            if (Game.countEnemy == 0)
-            {
-                Console.Clear();
-                Console.WriteLine("Вы достойно сражались и смогли искоренить зло, примите наши поздравления!");
-                Console.ReadKey();
+                Console.WriteLine($"Игра завершится через: {i}");
+                Thread.Sleep(1000);
                 Console.Clear();
             }
         }
