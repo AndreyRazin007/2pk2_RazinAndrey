@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PZ_22
+namespace PZ_23
 {
     enum Valences
     {
@@ -11,7 +11,7 @@ namespace PZ_22
         V = 5,
     }
 
-    class Subject
+    class Atom
     {
         private static int valence_1 = 0;
         private static int valence_2 = 0;
@@ -30,7 +30,7 @@ namespace PZ_22
             set { valences = value; }
         }
 
-        public static void PrintInfo()
+        public virtual void PrintInfo()
         {
             Console.Write($"Количество элементов с первой валентностью: {valence_1}\n" +
                           $"Количество элементов со второй валентностью: {valence_2}\n" +
@@ -38,7 +38,7 @@ namespace PZ_22
             Console.Write($"Valences: {Valences}");
         }
 
-        public Subject(int countElectrons)
+        public Atom(int countElectrons)
         {
             countFreeElectrons = countElectrons;
             if (countFreeElectrons == 1) ++valence_1;
