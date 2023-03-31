@@ -1,8 +1,9 @@
-﻿<Window x:Class="PZ_25.MainWindow"
+Window x:Class="PZ_25.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ_25"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -18,74 +19,91 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="Press7Button" Grid.Row="1"
+        <Button x:Name="Press7Button" Background="Orange" Grid.Row="1"
                 Grid.Column="0" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="7"
-                FontSize="30" Click="Press7Button_Click"></Button>
-        <Button x:Name="Press8Button" Grid.Row="1"
+                FontSize="50" Click="Press7Button_Click"></Button>
+        <Button x:Name="Press8Button" Background="Orange" Grid.Row="1"
                 Grid.Column="1" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="8"
-                FontSize="30" Click="Press8Button_Click"></Button>
-        <Button x:Name="Press9Button" Grid.Row="1"
+                FontSize="50" Click="Press8Button_Click"></Button>
+        <Button x:Name="Press9Button" Background="Orange" Grid.Row="1"
                 Grid.Column="2" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="9"
-                FontSize="30" Click="Press9Button_Click"></Button>
-        <Button x:Name="PressPlusButton" Grid.Row="1"
+                FontSize="50" Click="Press9Button_Click"></Button>
+        <Button x:Name="PressPlusButton" Background="Orange" Grid.Row="1"
                 Grid.Column="3" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="+"
-                FontSize="30" Click="PressPlusButton_Click"></Button>
+                FontSize="50" Click="PressPlusButton_Click"></Button>
+        <Button x:Name="PressCEButton" Background="Orange" Grid.Row="1"
+                Grid.Column="4" HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" Content="CE"
+                FontSize="50" Click="PressCEButton_Click"></Button>
 
-        <Button x:Name="Press4Button" Grid.Row="2"
+        <Button x:Name="Press4Button" Background="Orange" Grid.Row="2"
                 Grid.Column="0" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="4"
-                FontSize="30" Click="Press4Button_Click"></Button>
-        <Button x:Name="Press5Button" Grid.Row="2"
+                FontSize="50" Click="Press4Button_Click"></Button>
+        <Button x:Name="Press5Button" Background="Orange" Grid.Row="2"
                 Grid.Column="1" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="5"
-                FontSize="30" Click="Press5Button_Click"></Button>
-        <Button x:Name="Press6Button" Grid.Row="2"
+                FontSize="50" Click="Press5Button_Click"></Button>
+        <Button x:Name="Press6Button" Background="Orange" Grid.Row="2"
                 Grid.Column="2" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="6"
-                FontSize="30" Click="Press6Button_Click"></Button>
-        <Button x:Name="PressMinusButton" Grid.Row="2"
+                FontSize="50" Click="Press6Button_Click"></Button>
+        <Button x:Name="PressMinusButton" Background="Orange" Grid.Row="2"
                 Grid.Column="3" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="-"
-                FontSize="30" Click="PressMinusButton_Click"></Button>
+                FontSize="50" Click="PressMinusButton_Click"></Button>
+        <Button x:Name="PressCButton" Background="Orange" Grid.Row="2"
+                Grid.Column="4" HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" Content="C"
+                FontSize="50" Click="PressCButton_Click"></Button>
 
-        <Button x:Name="Press1Button" Grid.Row="3"
+        <Button x:Name="Press1Button" Background="Orange" Grid.Row="3"
                 Grid.Column="0" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="1"
-                FontSize="30" Click="Press1Button_Click"></Button>
-        <Button x:Name="Press2Button" Grid.Row="3"
+                FontSize="50" Click="Press1Button_Click"></Button>
+        <Button x:Name="Press2Button" Background="Orange" Grid.Row="3"
                 Grid.Column="1" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="2"
-                FontSize="30" Click="Press2Button_Click"></Button>
-        <Button x:Name="Press3Button" Grid.Row="3"
+                FontSize="50" Click="Press2Button_Click"></Button>
+        <Button x:Name="Press3Button" Background="Orange" Grid.Row="3"
                 Grid.Column="2" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="3"
-                FontSize="30" Click="Press3Button_Click"></Button>
-        <Button x:Name="PressMultiplyButton" Grid.Row="3"
+                FontSize="50" Click="Press3Button_Click"></Button>
+        <Button x:Name="PressMultiplyButton" Background="Orange" Grid.Row="3"
                 Grid.Column="3" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="*"
-                FontSize="30" Click="PressMultiplyButton_Click"></Button>
+                FontSize="50" Click="PressMultiplyButton_Click"></Button>
+        <Button x:Name="PressRPow_2_Button" Background="Orange" Grid.Row="3"
+                Grid.Column="4" HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" Content="r²"
+                FontSize="50" Click="PressRPow_2_Button_Click"></Button>
 
-        <Button x:Name="Press0Button" Grid.Row="4"
+        <Button x:Name="Press0Button" Background="Orange" Grid.Row="4"
                 Grid.Column="0" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="0"
-                FontSize="30" Click="Press0Button_Click"></Button>
-        <Button x:Name="PressEqualsButton" Grid.Row="4"
+                FontSize="50" Click="Press0Button_Click"></Button>
+        <Button x:Name="PressEqualsButton" Background="Orange" Grid.Row="4"
                 Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="="
-                FontSize="30" Click="ResultButton_Click"></Button>
-        <Button x:Name="PressSharingButton" Grid.Row="4"
+                FontSize="50" Click="ResultButton_Click"></Button>
+        <Button x:Name="PressSharingButton" Background="Orange" Grid.Row="4"
                 Grid.Column="3" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="/"
-                FontSize="30" Click="PressSharingButton_Click"></Button>
+                FontSize="50" Click="PressSharingButton_Click"></Button>
+        <Button x:Name="PressSqrtButton" Background="Orange" Grid.Row="4"
+                Grid.Column="4" HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" Content="√r"
+                FontSize="50" Click="PressSqrtButton_Click"></Button>
 
-        <TextBlock x:Name="InputTextBlock" Grid.Row="0"
-                   Grid.Column="0" Grid.ColumnSpan="4" FontSize="30"
-                   TextAlignment="Right"></TextBlock>
+        <TextBlock x:Name="InputTextBlock" Background="Black" Foreground="White" Grid.Row="0"
+                   Grid.Column="0" Grid.ColumnSpan="5" FontSize="50"
+                   TextAlignment="Right" Text="0"></TextBlock>
     </Grid>
 </Window>
