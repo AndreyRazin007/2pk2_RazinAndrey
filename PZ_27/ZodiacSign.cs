@@ -20,10 +20,10 @@ namespace PZ_27
 
     struct ZodiacSign
     {
-        private string name;
-        private Zodiac zodiac;
-        private string nameZodiac;
-        private readonly int[] birthday;
+        private string name = "Razin Andrey";
+        private Zodiac zodiac = Zodiac.Scorpio;
+        private string nameZodiac = "Scorpio";
+        private readonly int[] birthday = { 30, 10, 2005 };
 
         public string Name
         {
@@ -86,6 +86,11 @@ namespace PZ_27
         {
             Console.Write($"Your name: {Name}\nYour Zodiac: {NameZodiac}\n" +
                 $"Your birthday: {BirthDay[0]}, {BirthDay[1]}, {BirthDay[2]}\n");
+        }
+
+        public ZodiacSign()
+        {
+
         }
 
         public ZodiacSign(string name, Zodiac zodiac, string nameZodiac, int[] birthday)
