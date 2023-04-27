@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="bold.png" />
+    <None Remove="italic.png" />
+    <None Remove="savetheapplication.png" />
+    <None Remove="success.png" />
+    <None Remove="trash.png" />
+    <None Remove="underline.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\bold.png" />
+    <Resource Include="Icons\italic.png" />
+    <Resource Include="Icons\savetheapplication.png" />
+    <Resource Include="Icons\success.png" />
+    <Resource Include="Icons\trash.png" />
+    <Resource Include="Icons\underline.png" />
+  </ItemGroup>
+
+</Project>
