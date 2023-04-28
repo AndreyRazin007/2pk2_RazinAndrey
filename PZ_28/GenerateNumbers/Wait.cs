@@ -16,8 +16,8 @@
         }
 
         public delegate void PrintMessage(string message);
-        public event PrintMessage? myEvent;
+        public event PrintMessage? MyEvent;
 
-        public void Message(int number) => myEvent?.Invoke($"Число {number}");
+        public void Message(int number) => MyEvent?.Invoke($"Число {number}");
     }
 }

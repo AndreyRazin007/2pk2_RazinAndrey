@@ -1,33 +1,20 @@
-﻿using System;
-
-namespace Performance
+﻿namespace Performance
 {
-    class Student
+    class Lecturer
     {
-        private readonly int _countScore;
+        public delegate void PrintMessage(string message);
+        public event PrintMessage? MyEvent;
 
-        public double AveragePerformance
+        public void Message(double number)
         {
-            get;
-            private set;
-        }
-
-        public Student(int number)
-        {
-            _countScore = number;
-        }
-
-        public void EnteringGrades()
-        {
-            Random random = new();
-
-            for (int i = 0; i < _countScore; ++i)
+            if (number <= 2.4)
             {
-                int score = random.Next(0, 6);
-                AveragePerformance += score;
+                MyEvent?.Invoke($"Ваша успеваемость: {number} критична!");
             }
-
-            AveragePerformance /= _countScore;
+            else
+            {
+                MyEvent?.Invoke($"Ваша успеваемость: {number} удовлетворительна!");
+            }
         }
     }
 }
