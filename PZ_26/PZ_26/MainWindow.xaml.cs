@@ -1,5 +1,4 @@
-﻿using System.IO.Enumeration;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace PZ_26
@@ -40,19 +39,24 @@ namespace PZ_26
 
         }
 
-        private void UpdateCursorPosition()
-        {
-
-        }
-
-        private void textField_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void TextField_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             
         }
 
-        private void textField_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        private void TextField_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
 
+        }
+
+        private void Button_Trash(object sender, RoutedEventArgs e)
+        {
+            mainRTB.Document.Blocks.Clear();
+        }
+
+        private void Button_Italic(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -14,6 +14,9 @@
                 Click="NewFileMenuItemClick"></MenuItem>
                     <MenuItem x:Name="OpenFileMenuItem" Header="Open File">
                     </MenuItem>
+                    <MenuItem x:Name="SaveFileMenuItem" Header="Save File"></MenuItem>
+                    <Separator />
+                    <MenuItem x:Name="DeleteFileMenuItem" Header="Delete File"></MenuItem>
                     <Separator />
                     <MenuItem Header="Exit"></MenuItem>
                 </MenuItem>
@@ -22,16 +25,28 @@
             </Menu>
 
             <WrapPanel>
-                <Button x:Name="italic" ToolTip="Курсив" Width="30" Height="30">
+                <Button x:Name="italic" Click="Button_Italic" ToolTip="Курсив" Width="30" Height="30">
                     <Image Source="Icons\italic.png"/>
                 </Button>
-                
+
                 <Button x:Name="bold" ToolTip="Полужирный" Width="30" Height="30">
                     <Image Source="Icons\bold.png"/>
                 </Button>
-                
+
                 <Button x:Name="underline" ToolTip="Подчеркивание" Width="30" Height="30">
                     <Image Source="Icons\underline.png"/>
+                </Button>
+                
+                <Button x:Name="save" ToolTip="Сохранение нового файла" Width="30" Height="30">
+                    <Image Source="Icons\savetheapplication.png"/>
+                </Button>
+
+                <Button x:Name="success" ToolTip="Сохранение содержимого файла" Width="30" Height="30">
+                    <Image Source="Icons\success.png"/>
+                </Button>
+
+                <Button x:Name="trash" Click="Button_Trash" ToolTip="Очищение содержимового файла" Width="30" Height="30">
+                    <Image Source="Icons\trash.png"/>
                 </Button>
 
                 <Button Height="0" Width="0"
@@ -39,13 +54,14 @@
             </WrapPanel>
 
             <ListBox Name="List" Height="0">
-                
+
             </ListBox>
 
-            <RichTextBox Width="auto" Background="Black" Foreground="White">
-                
+            <RichTextBox Name="mainRTB" TabIndex="4" Cursor="AppStarting" Width="auto" AcceptsTab="True" SpellCheck.IsEnabled="True" MinHeight="100" Background="Black" Foreground="White">
+
             </RichTextBox>
-            
+
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
