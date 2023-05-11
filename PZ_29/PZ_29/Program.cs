@@ -5,18 +5,16 @@ namespace PZ_29
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Bank<Account> bank = new Bank<Account>("ЮнитБанк");
+            Bank<Account> bank = new("ЮнитБанк");
             bool alive = true;
             while (alive)
             {
-                ConsoleColor color = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.DarkGreen; // выводим список команд зеленым цветом
                 Console.WriteLine("1. Открыть счет \t 2. Вывести средства \t 3. Добавить на счет");
                 Console.WriteLine("4. Закрыть счет \t 5. Пропустить день \t 6. Выйти из программы");
                 Console.WriteLine("Введите номер пункта:");
-                Console.ForegroundColor = color;
                 try
                 {
                     int command = Convert.ToInt32(Console.ReadLine());
@@ -44,10 +42,8 @@ namespace PZ_29
                 }
                 catch (Exception ex)
                 {
-                    color = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(ex.Message);
-                    Console.ForegroundColor = color;
                 }
             }
         }
