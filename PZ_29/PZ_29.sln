@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PZ_29", "PZ_29\PZ_29.csproj", "{EF76E1E2-E03D-4845-BF02-A85B94EFBAA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PZ_29", "PZ_29\PZ_29.csproj", "{EF76E1E2-E03D-4845-BF02-A85B94EFBAA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankLibrary", "BankLibrary\BankLibrary.csproj", "{086CBF42-9DCA-4E94-BEA8-A713B78BEFDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankLibrary", "BankLibrary\BankLibrary.csproj", "{086CBF42-9DCA-4E94-BEA8-A713B78BEFDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{D3156525-6A96-401D-8986-0F0554C58558}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{086CBF42-9DCA-4E94-BEA8-A713B78BEFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{086CBF42-9DCA-4E94-BEA8-A713B78BEFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{086CBF42-9DCA-4E94-BEA8-A713B78BEFDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3156525-6A96-401D-8986-0F0554C58558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3156525-6A96-401D-8986-0F0554C58558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3156525-6A96-401D-8986-0F0554C58558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3156525-6A96-401D-8986-0F0554C58558}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
