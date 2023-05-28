@@ -8,8 +8,10 @@ namespace PZ_25
         public static double SingleSignOperation(ref MatchCollection matches,
             ref string expression)
         {
-            double firstOperand = Convert.ToDouble(expression[..matches[0].Index]);
-            double secondOperand = Convert.ToDouble(expression[(matches[0].Index + 1)..]);
+            double firstOperand = Convert
+                .ToDouble(expression[..matches[0].Index]);
+            double secondOperand = Convert
+                .ToDouble(expression[(matches[0].Index + 1)..]);
 
             return matches[0].ToString() switch
             {
@@ -24,10 +26,13 @@ namespace PZ_25
         public static double OperationTwoSigns(ref MatchCollection matches,
             ref string expression)
         {
-            if (matches[0].ToString() == "-" && matches[1].ToString() != "-")
+            if (matches[0].ToString() == "-" && matches[1].ToString() != "-"
+                && expression[0] != '0')
             {
-                double firstOperand = Convert.ToDouble(expression[..matches[1].Index]);
-                double secondOperand = Convert.ToDouble(expression[(matches[1].Index + 1)..]);
+                double firstOperand = Convert
+                    .ToDouble(expression[..matches[1].Index]);
+                double secondOperand = Convert
+                    .ToDouble(expression[(matches[1].Index + 1)..]);
 
                 return matches[1].ToString() switch
                 {
@@ -41,26 +46,41 @@ namespace PZ_25
 
             else
             {
-                double firstOperand = Convert.ToDouble(expression[..matches[0].Index]);
-                double secondOperand = Convert.ToDouble(expression[(matches[0].Index + 1)..matches[1].Index]);
-                double thirdOperand = Convert.ToDouble(expression[(matches[1].Index + 1)..]);
+                double firstOperand = Convert
+                    .ToDouble(expression[..matches[0].Index]);
+                double secondOperand = Convert
+                    .ToDouble(expression[(matches[0].Index + 1)..matches[1].Index]);
+                double thirdOperand = Convert
+                    .ToDouble(expression[(matches[1].Index + 1)..]);
 
                 double firstOperation = 0;
 
                 switch (matches[0].ToString())
                 {
-                    case "+": firstOperation = firstOperand + secondOperand; break;
-                    case "-": firstOperation = firstOperand - secondOperand; break;
-                    case "*": firstOperation = firstOperand * secondOperand; break;
-                    case "/": firstOperation = firstOperand / secondOperand; break;
+                    case "+":
+                        firstOperation = firstOperand
+                            + secondOperand; break;
+                    case "-":
+                        firstOperation = firstOperand
+                            - secondOperand; break;
+                    case "*":
+                        firstOperation = firstOperand
+                            * secondOperand; break;
+                    case "/":
+                        firstOperation = firstOperand
+                            / secondOperand; break;
                 }
 
                 if (matches[1].ToString() == "*")
                 {
                     switch (matches[0].ToString())
                     {
-                        case "+": return firstOperand + secondOperand * thirdOperand;
-                        case "-": return firstOperand - secondOperand * thirdOperand;
+                        case "+":
+                            return firstOperand + secondOperand
+                                * thirdOperand;
+                        case "-":
+                            return firstOperand - secondOperand
+                                * thirdOperand;
                     }
                 }
 
@@ -68,8 +88,12 @@ namespace PZ_25
                 {
                     switch (matches[0].ToString())
                     {
-                        case "+": return firstOperand + secondOperand / thirdOperand;
-                        case "-": return firstOperand - secondOperand / thirdOperand;
+                        case "+":
+                            return firstOperand + secondOperand
+                                / thirdOperand;
+                        case "-":
+                            return firstOperand - secondOperand
+                                / thirdOperand;
                     }
                 }
 
@@ -87,9 +111,12 @@ namespace PZ_25
         public static double OperationThreeSigns(ref MatchCollection matches,
             ref string expression)
         {
-            double firstOperand = Convert.ToDouble(expression[..matches[1].Index]);
-            double secondOperand = Convert.ToDouble(expression[(matches[1].Index + 1)..matches[2].Index]);
-            double thirdOperand = Convert.ToDouble(expression[(matches[2].Index + 1)..]);
+            double firstOperand = Convert
+                .ToDouble(expression[..matches[1].Index]);
+            double secondOperand = Convert
+                .ToDouble(expression[(matches[1].Index + 1)..matches[2].Index]);
+            double thirdOperand = Convert
+                .ToDouble(expression[(matches[2].Index + 1)..]);
 
             double firstOperation = 0;
 
@@ -105,8 +132,12 @@ namespace PZ_25
             {
                 switch (matches[1].ToString())
                 {
-                    case "+": return firstOperand + secondOperand * thirdOperand;
-                    case "-": return firstOperand - secondOperand * thirdOperand;
+                    case "+":
+                        return firstOperand + secondOperand
+                            * thirdOperand;
+                    case "-":
+                        return firstOperand - secondOperand
+                            * thirdOperand;
                 }
             }
 
@@ -114,8 +145,12 @@ namespace PZ_25
             {
                 switch (matches[1].ToString())
                 {
-                    case "+": return firstOperand + secondOperand / thirdOperand;
-                    case "-": return firstOperand - secondOperand / thirdOperand;
+                    case "+":
+                        return firstOperand + secondOperand
+                            / thirdOperand;
+                    case "-":
+                        return firstOperand - secondOperand
+                            / thirdOperand;
                 }
             }
 
@@ -127,11 +162,6 @@ namespace PZ_25
                 "/" => firstOperation / thirdOperand,
                 _ => 0,
             };
-        }
-
-        public Calculations()
-        {
-
         }
     }
 }

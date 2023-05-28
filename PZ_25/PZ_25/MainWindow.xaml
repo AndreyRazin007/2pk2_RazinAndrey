@@ -76,7 +76,8 @@
                 Grid.Column="2" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="3"
                 FontSize="50" Click="Press3Button_Click"></Button>
-        <Button x:Name="PressMultiplyButton" Background="Orange" Grid.Row="3"
+        <Button x:Name="PressMultiplyButton" Background="Orange"
+                Grid.Row="3"
                 Grid.Column="3" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="*"
                 FontSize="50" Click="PressMultiplyButton_Click"></Button>
@@ -90,7 +91,8 @@
                 VerticalAlignment="Stretch" Content="0"
                 FontSize="50" Click="Press0Button_Click"></Button>
         <Button x:Name="PressEqualsButton" Background="Orange" Grid.Row="4"
-                Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"
+                Grid.Column="1" Grid.ColumnSpan="2"
+                HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Content="="
                 FontSize="50" Click="ResultButton_Click"></Button>
         <Button x:Name="PressSharingButton" Background="Orange" Grid.Row="4"
@@ -102,7 +104,8 @@
                 VerticalAlignment="Stretch" Content="√r"
                 FontSize="50" Click="PressSqrtButton_Click"></Button>
 
-        <TextBlock x:Name="InputTextBlock" Background="Black" Foreground="White" Grid.Row="0"
+        <TextBlock x:Name="InputTextBlock" Background="Black"
+                   Foreground="White" Grid.Row="0"
                    Grid.Column="0" Grid.ColumnSpan="5" FontSize="50"
                    TextAlignment="Right" Text="0"></TextBlock>
     </Grid>

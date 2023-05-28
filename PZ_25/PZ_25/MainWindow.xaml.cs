@@ -89,12 +89,14 @@ namespace PZ_25
             InputTextBlock.Text += "-";
         }
 
-        private void PressMultiplyButton_Click(object sender, RoutedEventArgs e)
+        private void PressMultiplyButton_Click(object sender,
+            RoutedEventArgs e)
         {
             InputTextBlock.Text += "*";
         }
 
-        private void PressSharingButton_Click(object sender, RoutedEventArgs e)
+        private void PressSharingButton_Click(object sender,
+            RoutedEventArgs e)
         {
             InputTextBlock.Text += "/";
         }
@@ -113,19 +115,21 @@ namespace PZ_25
             }
         }
 
-        private void PressRPow_2_Button_Click(object sender, RoutedEventArgs e)
+        private void PressRPow_2_Button_Click(object sender,
+            RoutedEventArgs e)
         {
             string expression = InputTextBlock.Text;
 
             Regex regex = MyRegex();
             MatchCollection matches = regex.Matches(expression);
 
-            if ((expression.Length == 2 && matches.Count == 0) 
+            if ((expression.Length == 2 && matches.Count == 0)
                 || (expression.Length > 2 && matches.Count > 0)
                 || (expression.Length == 1 && matches.Count == 0)
                 || (expression.Length > 2 && matches.Count == 0))
             {
-                InputTextBlock.Text = Math.Pow(Calculation(ref expression), 2).ToString();
+                InputTextBlock.Text = Math.Pow(Calculation(ref expression), 2)
+                    .ToString();
             }
         }
 
@@ -141,7 +145,8 @@ namespace PZ_25
                 || (expression.Length == 1 && matches.Count == 0)
                 || (expression.Length > 2 && matches.Count == 0))
             {
-                InputTextBlock.Text = Math.Sqrt(Calculation(ref expression)).ToString();
+                InputTextBlock.Text = Math.Sqrt(Calculation(ref expression))
+                    .ToString();
             }
         }
 
@@ -158,24 +163,28 @@ namespace PZ_25
             Regex regex = MyRegex();
             MatchCollection matches = regex.Matches(expression);
 
-            if (matches.Count == 0 || (matches.Count == 1 && expression[0] == '-'))
+            if (matches.Count == 0 || (matches.Count == 1
+                && expression[0] == '-'))
             {
                 return Convert.ToDouble(expression);
             }
 
             else if (matches.Count == 1)
             {
-                return Calculations.SingleSignOperation(ref matches, ref expression);
+                return Calculations.SingleSignOperation(ref matches,
+                    ref expression);
             }
 
             else if (matches.Count == 2)
             {
-                return Calculations.OperationTwoSigns(ref matches, ref expression);
+                return Calculations.OperationTwoSigns(ref matches,
+                    ref expression);
             }
 
             else if (matches.Count == 3)
             {
-                return Calculations.OperationThreeSigns(ref matches, ref expression);
+                return Calculations.OperationThreeSigns(ref matches,
+                    ref expression);
             }
 
             else return 0;
