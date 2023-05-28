@@ -1,0 +1,33 @@
+﻿<Window x:Class="TourBooking.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TourBooking"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.15*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="MainList" KeyDown="MainList_KeyDown"
+                 MouseDoubleClick="MainList_MouseDoubleClick" Grid.Row="0"
+                 Grid.ColumnSpan="2" VerticalContentAlignment="Stretch"
+                 FontFamily="Open Sans" FontSize="15"/>
+
+        <Button Grid.Row="2" Grid.Column="0" x:Name="AddTour"
+                Content="Добавить тур" Background="OrangeRed"
+                VerticalContentAlignment="Center" FontSize="20"
+                FontFamily="Open Sans" Click="AddTour_Click"/>
+        <Button Grid.Row="2" Grid.Column="1" x:Name="DeleteTour"
+                Content="Удалить тур" Background="OrangeRed"
+                VerticalContentAlignment="Center" FontSize="20"
+                FontFamily="Open Sans" BorderBrush="#FF1207C0" Click="DeleteTour_Click"/>
+    </Grid>
+</Window>

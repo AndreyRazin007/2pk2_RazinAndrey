@@ -1,0 +1,69 @@
+﻿<Window x:Class="TourBooking.SaveTour"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TourBooking"
+        mc:Ignorable="d"
+        Title="SaveTour" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="ФИО участника тура:"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" FontSize="15"/>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="FullName"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center" FontSize="15"/>
+
+        <Label Grid.Row="1" Grid.Column="0"
+               Content="Паспортные данные заказчика:"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" FontSize="15"/>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="PassportData"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center" FontSize="15"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Начало маршрута:"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" FontSize="15"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="RouteStart"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center" FontSize="15"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Конец маршрута:"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" FontSize="15"/>
+        <TextBox Grid.Row="3" Grid.Column="1" x:Name="RouteEnd"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center" FontSize="15"/>
+
+        <Label Grid.Row="4" Grid.Column="0"
+               Content="Дополнительные участники тура:"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" FontSize="15"/>
+        <TextBox Grid.Row="4" Grid.Column="1" x:Name="AdditionalParticipants"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center" FontSize="15"/>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="Стоимость тура:"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" FontSize="15"/>
+        <TextBox Grid.Row="5" Grid.Column="1" x:Name="Cost"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center" FontSize="15"/>
+
+    </Grid>
+</Window>
