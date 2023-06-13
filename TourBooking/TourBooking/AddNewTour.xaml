@@ -67,6 +67,6 @@
 
         <Button Grid.Row="6" Grid.ColumnSpan="2" x:Name="NewTour"
                 Content="Добавить новый тур" FontFamily="Open Sans"
-                FontSize="20" Click="AddTour_Click"/>
+                FontSize="20" Click="AddTour_Click" Background="OrangeRed"/>
     </Grid>
 </Window>

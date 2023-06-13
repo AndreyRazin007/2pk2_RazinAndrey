@@ -22,8 +22,15 @@ namespace TourBooking
                     AdditionalParticipants.Text,
                     decimal.Parse(Cost.Text));
 
-                AddTour.Invoke(tour);
-                Close();
+                if (FullName.Text.Length > 0 && PassportData.Text.Length > 0
+                    && RouteStart.Text.Length > 0 && RouteEnd.Text.Length > 0
+                    && AdditionalParticipants.Text.Length > 0
+                    && Cost.Text.Length > 0)
+                {
+
+                    AddTour.Invoke(tour);
+                    Close();
+                }
 
             }
             catch (Exception exception)
